@@ -1,35 +1,35 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+// app/_layout.js
+import React from "react";
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { View } from "react-native";
+import colors from "../../theme/colors";
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function RootLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+    <View style={{ flex: 1, backgroundColor: colors.background }}>
+      <StatusBar style="dark" />
+      <Stack
+        screenOptions={{
+          headerShown: false,
         }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
+      >
+        {/* You don't actually have to list screens here;
+            expo-router will auto-register all the files in app/.
+            These are just examples if you want explicit options. */}
+        <Stack.Screen name="index" />
+        <Stack.Screen name="login" />
+        <Stack.Screen name="signup" />
+        <Stack.Screen name="home" />
+        <Stack.Screen name="appointments/index" />
+        <Stack.Screen name="appointments/[id]" />
+        <Stack.Screen name="appointments/book/step1" />
+        <Stack.Screen name="appointments/book/step2" />
+        <Stack.Screen name="appointments/book/step3" />
+        <Stack.Screen name="records/index" />
+        <Stack.Screen name="records/form" />
+        <Stack.Screen name="profile" />
+      </Stack>
+    </View>
   );
 }
