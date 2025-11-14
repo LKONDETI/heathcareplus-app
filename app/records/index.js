@@ -6,10 +6,7 @@ import Card from "../../components/Card";
 import PrimaryButton from "../../components/PrimaryButton";
 import colors from "../../theme/colors";
 
-const MOCK_CONDITIONS = [
-  { id: "1", name: "Hypertension", since: "2023", notes: "On medication" },
-  { id: "2", name: "Asthma", since: "2019", notes: "Mild, seasonal" },
-];
+import conditions from "../../data/conditions.json";
 
 export default function ConditionsListScreen() {
   return (
@@ -22,7 +19,7 @@ export default function ConditionsListScreen() {
       </View>
 
       <FlatList
-        data={MOCK_CONDITIONS}
+        data={conditions}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <Card>
@@ -38,34 +35,15 @@ export default function ConditionsListScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: colors.background,
-  },
+  container: { flex: 1, padding: 20, backgroundColor: colors.background },
   headerRow: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 12,
   },
-  title: {
-    fontSize: 22,
-    fontWeight: "700",
-    color: colors.textPrimary,
-  },
-  name: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: colors.textPrimary,
-  },
-  meta: {
-    fontSize: 13,
-    color: colors.textSecondary,
-  },
-  notes: {
-    marginTop: 4,
-    fontSize: 14,
-    color: colors.textPrimary,
-  },
+  title: { fontSize: 22, fontWeight: "700", color: colors.textPrimary },
+  name: { fontSize: 16, fontWeight: "600", color: colors.textPrimary },
+  meta: { fontSize: 13, color: colors.textSecondary },
+  notes: { marginTop: 4, fontSize: 14, color: colors.textPrimary },
 });

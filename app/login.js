@@ -13,13 +13,13 @@ export default function LoginScreen() {
   const [loading, setLoading] = useState(false);
 
   const handleLogin = () => {
-  if (email === "test@demo.com" && password === "123456") {
-    router.replace("/home");
-  } else {
-    Alert.alert("Invalid credentials", "Try email: test@demo.com, password: 123456");
-  }
+  setLoading(true);
+  // TODO: real auth – for now just fake login
+  setTimeout(() => {
+    setLoading(false);
+    router.replace("/(tabs)"); // go to the tabs layout
+  }, 800);
 };
-
 
   return (
     <View style={styles.container}>

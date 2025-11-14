@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "doctorId": "1",
+    "date": "2025-11-20",
+    "time": "10:30 AM",
+    "status": "Upcoming",
+    "location": "City Health Clinic, Room 203",
+    "notes": "Please arrive 10 minutes early and bring previous ECG reports."
+  },
+  {
+    "id": "2",
+    "doctorId": "2",
+    "date": "2025-10-01",
+    "time": "02:00 PM",
+    "status": "Completed",
+    "location": "Downtown Medical Center, Room 12",
+    "notes": "Routine checkup."
+  }
+]

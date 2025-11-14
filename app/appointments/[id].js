@@ -6,20 +6,24 @@ import Card from "../../components/Card";
 import PrimaryButton from "../../components/PrimaryButton";
 import colors from "../../theme/colors";
 
+import appointmentsData from "../../data/appointments.json";
+import doctorsData from "../../data/doctors.json";
+
 export default function AppointmentDetailsScreen() {
   const { id } = useLocalSearchParams();
 
-  // TODO: fetch real data by id
-  const appointment = {
-    id,
-    doctor: "Dr. Smith",
-    specialty: "Cardiologist",
-    date: "2025-11-20",
-    time: "10:30 AM",
-    location: "City Health Clinic, Room 203",
-    notes: "Please arrive 10 minutes early and bring previous ECG reports.",
-    status: "Upcoming",
-  };
+  const appointment = appointmentsData.find((a) => a.id === id);
+  const doctor = appointment
+    ? doctorsData.find((d) => d.id === appointment.doctorId)
+    : null;
+
+  if (!appointment) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.error}>Appointment not found.</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -28,7 +32,7 @@ export default function AppointmentDetailsScreen() {
 
         <Text style={styles.label}>Doctor</Text>
         <Text style={styles.value}>
-          {appointment.doctor} · {appointment.specialty}
+          {doctor ? `${doctor.name} · ${doctor.specialty}` : "Unknown doctor"}
         </Text>
 
         <Text style={styles.label}>Date & time</Text>
@@ -51,11 +55,8 @@ export default function AppointmentDetailsScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: colors.background,
-  },
+  container: { flex: 1, padding: 20, backgroundColor: colors.background },
+  error: { fontSize: 16, color: colors.danger },
   title: {
     fontSize: 18,
     fontWeight: "700",
@@ -68,14 +69,6 @@ const styles = StyleSheet.create({
     marginTop: 8,
     color: colors.textSecondary,
   },
-  value: {
-    fontSize: 14,
-    color: colors.textPrimary,
-  },
-  status: {
-    marginTop: 12,
-    fontSize: 13,
-    fontWeight: "600",
-    color: colors.primary,
-  },
+  value: { fontSize: 14, color: colors.textPrimary },
+  status: { marginTop: 12, fontSize: 13, fontWeight: "600", color: colors.primary },
 });

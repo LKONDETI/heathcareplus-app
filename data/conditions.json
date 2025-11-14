@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "name": "Hypertension",
+    "since": "2023",
+    "notes": "On regular medication."
+  },
+  {
+    "id": "2",
+    "name": "Asthma",
+    "since": "2019",
+    "notes": "Mild, seasonal triggers."
+  }
+]

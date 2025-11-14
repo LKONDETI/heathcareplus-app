@@ -1,35 +1,51 @@
-// app/_layout.js
+// app/(tabs)/_layout.js
 import React from "react";
-import { Stack } from "expo-router";
-import { StatusBar } from "expo-status-bar";
-import { View } from "react-native";
-import colors from "../../theme/colors";
+import { Tabs } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
 
-export default function RootLayout() {
+export default function TabsLayout() {
   return (
-    <View style={{ flex: 1, backgroundColor: colors.background }}>
-      <StatusBar style="dark" />
-      <Stack
-        screenOptions={{
-          headerShown: false,
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: "Home",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home-outline" size={size} color={color} />
+          ),
         }}
-      >
-        {/* You don't actually have to list screens here;
-            expo-router will auto-register all the files in app/.
-            These are just examples if you want explicit options. */}
-        <Stack.Screen name="index" />
-        <Stack.Screen name="login" />
-        <Stack.Screen name="signup" />
-        <Stack.Screen name="home" />
-        <Stack.Screen name="appointments/index" />
-        <Stack.Screen name="appointments/[id]" />
-        <Stack.Screen name="appointments/book/step1" />
-        <Stack.Screen name="appointments/book/step2" />
-        <Stack.Screen name="appointments/book/step3" />
-        <Stack.Screen name="records/index" />
-        <Stack.Screen name="records/form" />
-        <Stack.Screen name="profile" />
-      </Stack>
-    </View>
+      />
+      <Tabs.Screen
+        name="appointments"
+        options={{
+          title: "Appointments",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="calendar-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="records"
+        options={{
+          title: "Records",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="document-text-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person-outline" size={size} color={color} />
+          ),
+        }}
+      />
+    </Tabs>
   );
 }
