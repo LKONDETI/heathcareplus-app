@@ -2,7 +2,7 @@
 
 // IMPORTANT: on a real device, use your machine's LAN IP instead of localhost
 // Example: "http://192.168.1.5:5243"
-export const API_BASE_URL = "http://localhost:5046/"; // change to your backend http URL
+export const API_BASE_URL = "http://localhost:5046"; // change to your backend http URL
 
 export async function fetchConditions() {
   const res = await fetch(`${API_BASE_URL}/api/conditions`);
