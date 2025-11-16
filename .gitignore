@@ -41,3 +41,12 @@ app-example
 # generated native folders
 /ios
 /android
+
+# Backend build and dependency folders
+/backend/bin/
+/backend/obj/
+/backend/packages/
+/backend/*.db
+/backend/*.sqlite
+/backend/*.mdf
+/backend/*.ldf
