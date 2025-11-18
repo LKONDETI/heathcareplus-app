@@ -1,14 +1,30 @@
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Backend.Models
 {
+    [Table("users")] // must match lowercase table name EXACTLY
+    public class User
+    {
+        [Column("userid")]
+        public int UserId { get; set; }
 
-public class User
-{
-    public int UserId { get; set; }           // PK
-    public string Username { get; set; }      // unique
-    public string Email { get; set; }         // unique
-    public string PasswordHash { get; set; }  // plain for now if you want demo only
-    public string Name { get; set; }
-    public DateTime DateOfBirth { get; set; }
-    public string BloodGroup { get; set; }
-}
+        [Column("username")]
+        public string Username { get; set; }
+
+        [Column("email")]
+        public string Email { get; set; }
+
+        [Column("passwordhash")]
+        public string PasswordHash { get; set; }
+
+        [Column("name")]
+        public string Name { get; set; }
+
+        [Column("dateofbirth")]
+        public DateTime DateOfBirth { get; set; }
+
+        [Column("bloodgroup")]
+        public string BloodGroup { get; set; }
+    }
 }

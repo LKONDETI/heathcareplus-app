@@ -9,7 +9,7 @@ namespace Backend.Models
         public int Id { get; set; }
 
         [Column("userid")]
-        public int UserId { get; set; }   // INTEGER in DB
+        public string UserId { get; set; }   // INTEGER in DB
 
         [Column("name")]
         public string Name { get; set; }

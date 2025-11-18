@@ -43,6 +43,9 @@ app-example
 /android
 
 # Backend build and dependency folders
+/backend/node_modules/
+/backend/appsettings.Development.json
+/backend/appsettings.json
 /backend/bin/
 /backend/obj/
 /backend/packages/

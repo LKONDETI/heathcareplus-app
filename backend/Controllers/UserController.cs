@@ -1,4 +1,12 @@
+using Microsoft.AspNetCore.Mvc;
+using Backend.Models;
+using Backend.Data;
+using Backend.Dtos;
+using Microsoft.EntityFrameworkCore;
+namespace Backend.Controllers;
+
 [ApiController]
+
 [Route("users")]
 public class UsersController : ControllerBase
 {

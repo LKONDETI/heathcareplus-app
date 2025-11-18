@@ -1,3 +1,11 @@
+using Microsoft.AspNetCore.Mvc;
+using Backend.Models;
+using Backend.Data;
+using Backend.Dtos;
+using Microsoft.EntityFrameworkCore;
+namespace Backend.Controllers;
+
+
 [ApiController]
 [Route("auth")]
 public class AuthController : ControllerBase
