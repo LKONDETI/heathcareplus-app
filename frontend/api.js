@@ -35,3 +35,29 @@ export async function deleteCondition(id) {
   });
   if (!res.ok) throw new Error("Failed to delete condition");
 }
+
+export async function registerUser(data) {
+  const res = await fetch(`${API_BASE_URL}/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+
+export async function loginUser(data) {
+  const res = await fetch(`${API_BASE_URL}/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+
+export async function getUserProfile(userId) {
+  const res = await fetch(`${API_BASE_URL}/users/${userId}`);
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}

@@ -1,9 +1,9 @@
-using HealthcareBackend.Data;
-using HealthcareBackend.Models;
+using Backend.Data;
+using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace HealthcareBackend.Controllers;
+namespace Backend.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
