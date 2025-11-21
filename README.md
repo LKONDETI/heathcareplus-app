@@ -63,6 +63,50 @@ Welcome to HealthcarePlus, a full-stack healthcare management solution. The fron
    dotnet run
    ```
 
+## Docker Integration Instructions
+
+This project uses Docker Compose to run the frontend (Expo), backend (.NET), and PostgreSQL database together.
+
+### Prerequisites
+- Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+### How to Start All Services
+
+1. Open a terminal in the project root (where `docker-compose.yml` is located).
+2. Run:
+   ```bash
+   docker compose up --build
+   ```
+   This will build and start the database, backend, and frontend containers.
+
+### Accessing the Services
+- **Frontend (Expo Web):** http://localhost:8081
+- **Backend API:** http://localhost:5046
+- **PostgreSQL:** localhost:5432 (user: postgres, password: password, db: healthcareplus_app)
+
+### Common Commands
+- Stop all services:
+  ```bash
+  docker compose down
+  ```
+- View logs:
+  ```bash
+  docker compose logs -f
+  ```
+- Rebuild containers:
+  ```bash
+  docker compose up --build
+  ```
+
+### Notes
+- The backend connects to the database using the connection string in `docker-compose.yml`.
+- The frontend uses the backend API URL via environment variable (for web; for mobile, use your LAN IP).
+- You can develop locally and changes will reflect in the containers if you edit code.
+
+---
+
+For advanced usage, see the official Docker and Docker Compose documentation.
+
 ## Learn More
 
 - [Expo documentation](https://docs.expo.dev/)
