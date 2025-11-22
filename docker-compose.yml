@@ -25,7 +25,7 @@ services:
     ports:
       - "5046:5046"
     working_dir: /app
-    command: ["dotnet", "backend.dll"]  # use your real dll name
+    command: ["dotnet", "backend.dll"] 
 
 
   frontend:
